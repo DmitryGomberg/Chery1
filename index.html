@@ -6,11 +6,11 @@
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220521201400" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20220526192350" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="https://fonts.googleapis.com/css?family=Inter:regular&_v=20220521201400" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Inter:regular&_v=20220526192350" rel="stylesheet" />
 </head>
 
 <body>
@@ -70,12 +70,16 @@
 								закажите свой chery tiggo
 							</div>
 							<div class="form-preview__line">
-								<input type="text" class="form-preview__input input" placeholder="Имя">
-								<input type="text" class="form-preview__input input" placeholder="Телефон">
+								<div class="form-test__inner">
+									<input type="text" class="form-preview__input input" placeholder="Имя" data-required data-validate data-error="*">
+								</div>
+								<div class="form-test__inner">
+									<input type="text" class="form-preview__input input" placeholder="Телефон" data-inputmask="'mask': '+7 (999) 999-99-99'" data-required data-validate data-error="*">
+								</div>
 								<button type="submit" class="btn-red btn form-preview__button">заказать</button>
 							</div>
-							<div class="checkbox" data-da=".form-preview__line, 500, 2">
-								<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" checked>
+							<div class="checkbox form-test__check" data-da=".form-preview__line, 500, 2">
+								<input id="c_1" class="checkbox__input" type="checkbox" value="1" name="form[]" checked data-required data-validate data-error="*">
 								<label for="c_1" class="checkbox__label"><span class="checkbox__text">Я согласен на обработку персональных данных</span></label>
 							</div>
 						</form>
@@ -159,19 +163,19 @@
 						<form action="" class="techno__form form-techno">
 							<div class="form-techno__title title">хотите узнать больше?</div>
 							<div class="form-techno__grid">
-								<div class="form-techno__input">
-									<input type="text" placeholder="Имя" class="input">
+								<div class="form-techno__input form-test__inner">
+									<input type="text" placeholder="Имя" class="input" data-required data-validate data-error="*">
 								</div>
-								<div class="form-techno__input">
-									<input type="text" placeholder="Телефон" class="input">
+								<div class="form-techno__input form-test__inner">
+									<input type="text" placeholder="Телефон" class="input" data-required data-validate data-error="*" data-inputmask="'mask': '+7 (999) 999-99-99'">
 								</div>
-								<div class="form-techno__input">
-									<input type="text" placeholder="Email" class="input">
+								<div class="form-techno__input form-test__inner">
+									<input type="text" placeholder="Email" class="input" data-required="email" data-validate data-error="*">
 								</div>
 								<button type="submit" class="form-techno__btn btn btn-red">заказать брошюру</button>
 							</div>
-							<div class="checkbox">
-								<input id="c_2" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" checked>
+							<div class="checkbox form-test__check">
+								<input id="c_2" class="checkbox__input" type="checkbox" value="1" name="form[]" checked data-required data-validate data-error="*">
 								<label for="c_2" class="checkbox__label"><span class="checkbox__text">Я согласен на обработку персональных данных</span></label>
 							</div>
 						</form>
@@ -467,12 +471,19 @@
 						<h2 class="bro__title title _dark">
 							запросить брошюру
 						</h2>
-						<input type="text" class="input bro__input" placeholder="Имя">
-						<input type="text" class="input bro__input" placeholder="Телефон">
-						<input type="text" class="input bro__input" placeholder="Email">
+						<div class="form-test__inner">
+							<input type="text" class="input bro__input" placeholder="Имя" data-required data-validate data-error="*">
+						</div>
+						<div class="form-test__inner">
+							<input type="text" class="input bro__input" placeholder="Телефон" data-inputmask="'mask': '+7 (999) 999-99-99'" data-required data-validate data-error="*">
+						</div>
+						<div class="form-test__inner">
+							<input type="text" class="input bro__input" placeholder="Email" data-required="email data-validate" data-error="*">
+						</div>
+
 						<button type="submit" class="btn btn-red bro__btn">заказать брошюру</button>
-						<div class="checkbox">
-							<input id="c_3" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" checked>
+						<div class="checkbox form-test__check">
+							<input id="c_3" class="checkbox__input" type="checkbox" value="1" name="form[]" checked data-required data-validate data-error="*">
 							<label for="c_3" class="checkbox__label"><span class="checkbox__text">Я согласен на обработку персональных данных</span></label>
 						</div>
 					</form>
@@ -594,6 +605,154 @@
 					</form>
 				</div>
 			</section>
+			<section class="review">
+				<div class="review__container">
+					<div class="review__title title _dark">
+						обзоры chery
+						<span class="_red">tiggo 8 pro</span>
+					</div>
+					<!-- Оболочка слайдера -->
+					<div class="review__slider swiper">
+						<!-- Двигающееся часть слайдера -->
+						<div class="review__wrapper swiper-wrapper">
+							<!-- Слайд -->
+							<div class="review__slide swiper-slide">
+								<a href="">
+									<div class="review__slide-image__wrap">
+										<div class="review__slide__image-ibg"><picture><source srcset="img/slider/1.webp" type="image/webp"><img src="img/slider/1.png" alt=""></picture></div>
+									</div>
+									<div class="review__slide-info">
+										<div class="review__slide-info__img">
+											<picture><source srcset="img/web-sites/1.webp" type="image/webp"><img src="img/web-sites/1.png" alt=""></picture>
+										</div>
+										<div class="review__slide-info__text">
+											Максимов, Автоблог
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="review__slide swiper-slide">
+								<a href="">
+									<div class="review__slide-image__wrap">
+										<div class="review__slide__image-ibg"><picture><source srcset="img/slider/2.webp" type="image/webp"><img src="img/slider/2.png" alt=""></picture></div>
+									</div>
+									<div class="review__slide-info">
+										<div class="review__slide-info__img">
+											<picture><source srcset="img/web-sites/2.webp" type="image/webp"><img src="img/web-sites/2.png" alt=""></picture>
+										</div>
+										<div class="review__slide-info__text">
+											Главная дорога
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="review__slide swiper-slide">
+								<a href="">
+									<div class="review__slide-image__wrap">
+										<div class="review__slide__image-ibg"><picture><source srcset="img/slider/3.webp" type="image/webp"><img src="img/slider/3.png" alt=""></picture></div>
+									</div>
+									<div class="review__slide-info">
+										<div class="review__slide-info__img">
+											<picture><source srcset="img/web-sites/3.webp" type="image/webp"><img src="img/web-sites/3.png" alt=""></picture>
+										</div>
+										<div class="review__slide-info__text">
+											DRIVE 2
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="review__slide swiper-slide">
+								<a href="">
+									<div class="review__slide-image__wrap">
+										<div class="review__slide__image-ibg"><picture><source srcset="img/slider/2.webp" type="image/webp"><img src="img/slider/2.png" alt=""></picture></div>
+									</div>
+									<div class="review__slide-info">
+										<div class="review__slide-info__img">
+											<picture><source srcset="img/web-sites/2.webp" type="image/webp"><img src="img/web-sites/2.png" alt=""></picture>
+										</div>
+										<div class="review__slide-info__text">
+											Главная дорога
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="review__slide swiper-slide">
+								<a href="">
+									<div class="review__slide-image__wrap">
+										<div class="review__slide__image-ibg"><picture><source srcset="img/slider/3.webp" type="image/webp"><img src="img/slider/3.png" alt=""></picture></div>
+									</div>
+									<div class="review__slide-info">
+										<div class="review__slide-info__img">
+											<picture><source srcset="img/web-sites/3.webp" type="image/webp"><img src="img/web-sites/3.png" alt=""></picture>
+										</div>
+										<div class="review__slide-info__text">
+											DRIVE 2
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<!-- Если нужна пагинация -->
+						<div class="swiper-pagination">
+
+						</div>
+						<!-- Если нужна навигация (влево/вправо) -->
+						<button type="button" class="swiper-button-prev">
+							<picture><source srcset="img/icons/slider-prev.webp" type="image/webp"><img src="img/icons/slider-prev.png" alt=""></picture>
+						</button>
+						<button type="button" class="swiper-button-next">
+							<picture><source srcset="img/icons/slider-next.webp" type="image/webp"><img src="img/icons/slider-next.png" alt=""></picture>
+						</button>
+					</div>
+				</div>
+			</section>
+			<section class="bro bro2">
+				<div class="bro__container">
+					<div class="bro__image">
+						<div class="bro__image-ibg"><picture><source srcset="img/broschure/2.webp" type="image/webp"><img src="img/broschure/2.png" alt=""></picture></div>
+					</div>
+					<form action="" class="bro__form bro2-form">
+						<div class="bro2-form__title title">
+							Не упустите выгоду
+							на автомобили Chery
+							до 350 000!
+						</div>
+						<div class="bro2-form__text">
+							Новое предложение действительно еще:
+						</div>
+						<div class="bro2-form__timer">
+							<div id="countdown" class="countdown">
+								<div class="countdown-number">
+									<span class="days countdown-time"></span>
+									<span class="countdown-text">:</span>
+								</div>
+								<div class="countdown-number">
+									<span class="hours countdown-time"></span>
+									<span class="countdown-text">:</span>
+								</div>
+								<div class="countdown-number">
+									<span class="minutes countdown-time"></span>
+									<span class="countdown-text">:</span>
+								</div>
+								<div class="countdown-number">
+									<span class="seconds countdown-time"></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-test__inner">
+							<input type="text" class="bro2-form__input input" placeholder="Имя" data-required data-validate data-error="*">
+						</div>
+						<div class="form-test__inner">
+							<input type="text" class="bro2-form__input input" placeholder="Телефон" data-required data-validate data-error="*" data-inputmask="'mask': '+7 (999) 999-99-99'">
+						</div>
+						<button type="submit" class="btn btn-red bro2__btn">перезвоните мне</button>
+						<div class="checkbox form-test__check">
+							<input id="c_5" class="checkbox__input" type="checkbox" value="1" name="form[]" checked="" data-required data-validate data-error="*">
+							<label for="c_5" class="checkbox__label"><span class="checkbox__text">Я согласен на обработку персональных данных</span></label>
+						</div>
+					</form>
+				</div>
+			</section>
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
@@ -699,7 +858,7 @@
 			</ul>
 		</div>
 	</section>
-	<script src="js/app.min.js?_v=20220521201400"></script>
+	<script src="js/app.min.js?_v=20220526192350"></script>
 </body>
 
 </html>
