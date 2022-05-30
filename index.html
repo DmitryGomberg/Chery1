@@ -5,12 +5,50 @@
 	<title>Главная</title>
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
+	<style>
+		html {
+			position: relative;
+			overflow: hidden;
+		}
+
+		html::before {
+			content: 'Loading...';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			color: #fff;
+			font-size: 18px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: all .2s ease;
+			opacity: 1;
+			visibility: visible;
+			z-index: 101;
+		}
+
+		html::after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-color: rgb(37, 37, 37);
+			transition: all .2s ease;
+			opacity: 1;
+			visibility: visible;
+			z-index: 100;
+		}
+	</style>
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220529224051" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20220530164655" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="https://fonts.googleapis.com/css?family=Inter:regular&_v=20220529224051" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Inter:regular&_v=20220530164655" rel="stylesheet" />
 </head>
 
 <body>
@@ -35,16 +73,16 @@
 						</div>
 						<ul class="info-header__menu">
 							<li class="info-header__menu-item">
-								<a href="">О Модели</a>
+								<a href="" data-goto-header data-goto=".car">О Модели</a>
 							</li>
 							<li class="info-header__menu-item">
-								<a href="">Комплектации</a>
+								<a href="" data-goto-header data-goto=".table">Комплектации</a>
 							</li>
 							<li class="info-header__menu-item">
-								<a href="">Тестдрайв</a>
+								<a href="" data-goto=".test">Тестдрайв</a>
 							</li>
 							<li class="info-header__menu-item">
-								<a href="">Клиентам</a>
+								<a href="" data-goto-header data-goto=".review">Клиентам</a>
 							</li>
 					</div>
 					<div class="info-header__burger">
@@ -91,7 +129,7 @@
 							<img src="img/icons/icon-phone.svg" alt="">
 						</div>
 					</a>
-					<a href="" class="preview__item link-preview link-preview-red">
+					<a href="" class="preview__item link-preview link-preview-red" data-popup="#test">
 						<div class="link-preview__icon">
 							<img src="img/icons/icon-drive.svg" alt="">
 						</div>
@@ -913,7 +951,7 @@
 										<div class="slide-final__price">
 											3 589 900 р
 										</div>
-										<a href="" class="slide-final__btn btn">купить этот авто</a>
+										<a href="" class="slide-final__btn btn" data-popup="#buy">купить этот авто</a>
 									</div>
 								</div>
 								<div class="final__slide swiper-slide slide-final">
@@ -933,7 +971,7 @@
 										<div class="slide-final__price">
 											3 589 900 р
 										</div>
-										<a href="" class="slide-final__btn btn">купить этот авто</a>
+										<a href="" class="slide-final__btn btn" data-popup="#buy">купить этот авто</a>
 									</div>
 								</div>
 								<div class="final__slide swiper-slide slide-final">
@@ -953,7 +991,7 @@
 										<div class="slide-final__price">
 											3 589 900 р
 										</div>
-										<a href="" class="slide-final__btn btn">купить этот авто</a>
+										<a href="" class="slide-final__btn btn" data-popup="#buy">купить этот авто</a>
 									</div>
 								</div>
 								<div class="final__slide swiper-slide slide-final">
@@ -973,7 +1011,7 @@
 										<div class="slide-final__price">
 											3 589 900 р
 										</div>
-										<a href="" class="slide-final__btn btn">купить этот авто</a>
+										<a href="" class="slide-final__btn btn" data-popup="#buy">купить этот авто</a>
 									</div>
 								</div>
 								<div class="final__slide swiper-slide slide-final">
@@ -993,7 +1031,7 @@
 										<div class="slide-final__price">
 											3 589 900 р
 										</div>
-										<a href="" class="slide-final__btn btn">купить этот авто</a>
+										<a href="" class="slide-final__btn btn" data-popup="#buy">купить этот авто</a>
 									</div>
 								</div>
 								<div class="final__slide swiper-slide slide-final">
@@ -1013,7 +1051,7 @@
 										<div class="slide-final__price">
 											3 589 900 р
 										</div>
-										<a href="" class="slide-final__btn btn">купить этот авто</a>
+										<a href="" class="slide-final__btn btn" data-popup="#buy">купить этот авто</a>
 									</div>
 								</div>
 							</div>
@@ -1117,6 +1155,98 @@
 		</footer>
 	</div>
 
+	<div id="test" aria-hidden="true" class="popup popup-test-drive">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">
+					<img src="img/popup/close.svg" alt="">
+				</button>
+				<div class="popup__image">
+					<picture><source srcset="img/popup/cars.webp" type="image/webp"><img src="img/popup/cars.png" alt=""></picture>
+				</div>
+				<div class="popup__inner">
+					<div class="popup__title title _dark">
+						попробуйте <span class="_red">tiggo</span>. запишитесь на тест драйв.
+					</div>
+					<form action="" class="popup__form">
+						<div class="form-test__inner">
+							<input type="text" class="form-test__input input" placeholder="Имя" data-required data-validate data-error="*">
+						</div>
+
+						<div class="form-test__inner">
+							<input type="tel" class="form-test__input input" placeholder="Телефон" data-inputmask="'mask': '+7 (999) 999-99-99'" data-required data-validate data-error="*">
+						</div>
+						<div class="form-test__dates">
+							<input type="text" class="popup-test__date input" placeholder="Дата" data-required data-validate data-error="*">
+						</div>
+						<button type="submit" class="popup-test__button btn btn-red">перезвоните мне</button>
+						<div class="checkbox form-test__check">
+							<input id="c_10" class="checkbox__input" type="checkbox" value="1" name="form[]" checked data-required data-validate data-error="*">
+							<label for="c_10" class="checkbox__label"><span class="checkbox__text">Я согласен на обработку персональных данных</span></label>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="buy" aria-hidden="true" class="popup popup-buy-drive">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">
+					<img src="img/popup/close.svg" alt="">
+				</button>
+				<div class="popup__image">
+					<picture><source srcset="img/popup/cars.webp" type="image/webp"><img src="img/popup/cars.png" alt=""></picture>
+				</div>
+				<div class="popup__inner">
+					<div class="popup__title title _dark">
+						tiggo
+						<span class="_red">8 pro</span>
+					</div>
+					<div class="popup__price">
+						3 540 000 р
+					</div>
+					<div class="popup__time">
+						<div class="popup__time-text">
+							Новое предложение
+							действительно еще:
+						</div>
+						<div id="countdown2" class="countdown">
+							<div class="countdown-number">
+								<span class="days countdown-time"></span>
+								<span class="countdown-text">:</span>
+							</div>
+							<div class="countdown-number">
+								<span class="hours countdown-time"></span>
+								<span class="countdown-text">:</span>
+							</div>
+							<div class="countdown-number">
+								<span class="minutes countdown-time"></span>
+								<span class="countdown-text">:</span>
+							</div>
+							<div class="countdown-number">
+								<span class="seconds countdown-time"></span>
+							</div>
+						</div>
+					</div>
+					<form action="" class="popup__form">
+						<div class="form-test__inner">
+							<input type="text" class="form-test__input input" placeholder="Имя" data-required data-validate data-error="*">
+						</div>
+						<div class="form-test__inner">
+							<input type="tel" class="form-test__input input" placeholder="Телефон" data-inputmask="'mask': '+7 (999) 999-99-99'" data-required data-validate data-error="*">
+						</div>
+						<button type="submit" class="popup-test__button btn btn-red">перезвоните мне</button>
+						<div class="checkbox form-test__check">
+							<input id="c_11" class="checkbox__input" type="checkbox" value="1" name="form[]" checked data-required data-validate data-error="*">
+							<label for="c_11" class="checkbox__label"><span class="checkbox__text">Я согласен на обработку персональных данных</span></label>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<section class="mob-menu">
 		<div class="mob-menu__inner">
 			<div class="info-header__burger info-header__burger-mob">
@@ -1124,42 +1254,42 @@
 			</div>
 			<ul class="mob-menu__list">
 				<li class="mob-menu__item">
-					<a href="">Комплектации</a>
+					<a href="" data-goto-header data-goto=".table">Комплектации</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">Цвета</a>
+					<a href="" data-goto-header data-goto=".color">Цвета</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">Технологии</a>
+					<a href="" data-goto-header data-goto=".car">Технологии</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">Тестдрайв</a>
+					<a href="" data-goto-header data-goto=".test">Тестдрайв</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">Обзоры</a>
+					<a href="" data-goto-header data-goto=".review">Обзоры</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">Спецпредложение</a>
+					<a href="" data-goto-header data-goto=".bro2">Спецпредложение</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">Лизинг</a>
+					<a href="" data-goto-header data-goto=".pay">Лизинг</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">Кредит</a>
+					<a href="" data-goto-header data-goto=".pay">Кредит</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">Трейд-ин</a>
+					<a href="" data-goto-header data-goto=".pay__main">Трейд-ин</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">В наличии</a>
+					<a href="" data-goto-header data-goto=".final">В наличии</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="">Задать вопрос</a>
+					<a href="" data-goto-header data-goto=".final__form">Задать вопрос</a>
 				</li>
 			</ul>
 		</div>
 	</section>
-	<script src="js/app.min.js?_v=20220529224051"></script>
+	<script src="js/app.min.js?_v=20220530164655"></script>
 </body>
 
 </html>
